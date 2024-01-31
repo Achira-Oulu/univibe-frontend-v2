@@ -125,7 +125,8 @@ const WorkspaceQuestionnaire = () => {
     const handleSubmit = () => {
         // Handle the final submission
         setIsSubmitted(true);
-        console.log("Form Submitted");
+        // console.log("Form Submitted");
+        console.log("Form Submitted. Responses:", responses);
         // Here you would typically send the `responses` to your server
         
     };
@@ -159,7 +160,10 @@ const WorkspaceQuestionnaire = () => {
 
     return (
         <Container maxWidth="sm">
-            {/* ... existing JSX */}
+
+            <Box sx={{ width: '100%' }}>
+                <LinearProgress variant="determinate" value={progress} />
+            </Box>
             <Typography variant="h4" style={{ margin: '20px 0' }}>Workspace Questionnaire</Typography>
             {isSubmitted ? (
                 <SectionFinal resetForm={() => {
