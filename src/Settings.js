@@ -1,5 +1,9 @@
 import React from 'react';
-import { Typography, CssBaseline, Container } from '@mui/material';
+
+// commenting for netlify
+// import { Typography, CssBaseline, Container } from '@mui/material';
+
+import { Typography, Container } from '@mui/material';
 
 const Settings = () => {
     // const classes = useStyles();

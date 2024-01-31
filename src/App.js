@@ -2,7 +2,11 @@ import React from 'react';
 // import { Typography, CssBaseline, Container } from '@mui/material';
 import FixedBottomNavigation from './FixedBottomNavigation';
 
-import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+
+// commenting for Netlify
+// import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from './Home';
 import Review from './Review';

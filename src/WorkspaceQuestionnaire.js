@@ -21,7 +21,7 @@ import { LinearProgress } from '@mui/material';
 const WorkspaceQuestionnaire = () => {
 
     const location = useLocation();
-    const navigate = useNavigate();
+    // const navigate = useNavigate(); fommented for netlify 
     const uniqueIdFromReview = location.state?.uniqueId; // Retrieve the uniqueId passed from the Review component
 
 
@@ -109,18 +109,18 @@ const WorkspaceQuestionnaire = () => {
         }
     };
 
+    //commented for netlify     
+    // const nextStep = () => {
+    //     if (currentStep < totalSteps) {
+    //         setCurrentStep(currentStep + 1);
+    //     }
+    // };
 
-    const nextStep = () => {
-        if (currentStep < totalSteps) {
-            setCurrentStep(currentStep + 1);
-        }
-    };
-
-    const prevStep = () => {
-        if (currentStep > 1) {
-            setCurrentStep(currentStep - 1);
-        }
-    };
+    // const prevStep = () => {
+    //     if (currentStep > 1) {
+    //         setCurrentStep(currentStep - 1);
+    //     }
+    // };
 
     const handleSubmit = () => {
         // Handle the final submission
