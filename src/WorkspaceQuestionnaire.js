@@ -210,12 +210,15 @@ const WorkspaceQuestionnaire = () => {
     };
 
     return (
-        <Container maxWidth="sm">
+        <>
 
-            <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
-                <LinearProgress variant="determinate" value={progress} />
-            </Box>
-            <Typography variant="h4" style={{ margin: '20px 0' }}>Workspace Questionnaire</Typography>
+        <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
+            <LinearProgress variant="determinate" value={progress} />
+        </Box>
+
+
+        <Container maxWidth="sm">
+            <Typography variant="h4" style={{ margin: '20px 0', textAlign: 'center'}}> Uni<b>Vibe</b> </Typography>
             {isSubmitted ? (
                 <SectionFinal resetForm={() => {
                     setIsSubmitted(false);
@@ -239,6 +242,7 @@ const WorkspaceQuestionnaire = () => {
                 </>
             )}
         </Container>
+        </>
     );
 
 

@@ -69,7 +69,7 @@ const Review = () => {
                     onChange={(e) => setUniqueId(e.target.value)}
                     margin="normal"
                 />
-                <Button type="submit" variant="contained" color="primary">Submit Review</Button>
+                <Button type="submit" variant="contained" color="primary">Get Started!</Button>
             </form>
         </Container>
     );
