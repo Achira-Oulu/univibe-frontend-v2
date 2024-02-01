@@ -11,7 +11,7 @@ const Settings = () => {
     return(
         <Container maxWidth="sm" style={{marginTop: '10px'}}>
             <div> 
-                <Typography variant='h4'>Hello This is Settings</Typography>  
+                <Typography variant='h4'>Hello This is Settings..</Typography>  
               
             </div>
         </Container>

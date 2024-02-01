@@ -122,14 +122,65 @@ const WorkspaceQuestionnaire = () => {
     //     }
     // };
 
-    const handleSubmit = () => {
-        // Handle the final submission
-        setIsSubmitted(true);
-        // console.log("Form Submitted");
-        console.log("Form Submitted. Responses:", responses);
-        // Here you would typically send the `responses` to your server
+
+
+    // const handleSubmit = () => {
+    //     // Handle the final submission
+    //     setIsSubmitted(true);
+    //     // console.log("Form Submitted");
+    //     console.log("Form Submitted. Responses:", responses);
+    //     // Here you would typically send the `responses` to your server
         
+    // };
+
+
+
+    const handleSubmit = async () => {
+        // Create a FormData object to bundle the data for sending
+        const formData = new FormData();
+
+        // Append the image file to formData if it exists
+        if (responses.photo) {
+            formData.append('photo', responses.photo);
+        }
+
+        // Append location data to formData if it exists
+        if (responses.location) {
+            formData.append('location', JSON.stringify(responses.location));
+        }
+
+        // Append other response data to formData
+        Object.keys(responses).forEach(key => {
+            if (key !== 'photo' && key !== 'location') {
+                formData.append(key, responses[key]);
+            }
+        });
+
+        // Send the formData to your Flask backend
+        try {
+            const response = await fetch('http://your-flask-api-endpoint/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Success:', result);
+                // Handle success here, possibly resetting the form or redirecting the user
+            } else {
+                console.error('Server error:', response.statusText);
+                // Handle server errors here
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            // Handle network errors here
+        }
+
+        // Indicate submission has occurred
+        setIsSubmitted(true);
     };
+
+
 
     const renderSection = () => {
 
@@ -161,7 +212,7 @@ const WorkspaceQuestionnaire = () => {
     return (
         <Container maxWidth="sm">
 
-            <Box sx={{ width: '100%' }}>
+            <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
                 <LinearProgress variant="determinate" value={progress} />
             </Box>
             <Typography variant="h4" style={{ margin: '20px 0' }}>Workspace Questionnaire</Typography>
