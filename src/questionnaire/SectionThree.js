@@ -52,13 +52,13 @@ const SectionThree = ({ responses, handleChange }) => {
     return (
         <>
 
-<Typography variant="h5" sx={{ mb: 2 }}>Functional and Emotional Workspace Attributes</Typography>
+<Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Functional and Emotional Workspace Attributes</Typography>
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
-                <Typography variant="h6" sx={{ mb: 2 }}>Functional and Emotional Workspace Attributes</Typography>
+                <Typography variant="h6" sx={{ mb: 2 }}>Person-Environment Fit</Typography>
                 
                 {/* Person-Environment Fit */}
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Person-Environment Fit:</FormLabel>
+                    <FormLabel component="legend">How suitable do you find the workspace for the activities you perform there?</FormLabel>
                     <RadioGroup
                         aria-label="person-environment-fit"
                         name="personEnvironmentFit"
@@ -74,9 +74,10 @@ const SectionThree = ({ responses, handleChange }) => {
             </Paper>
             
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Overall Satisfaction</Typography>
                 {/* Overall Satisfaction */}
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Overall Satisfaction:</FormLabel>
+                    <FormLabel component="legend">How satisfied are you with your workspace/environment?</FormLabel>
                     <RadioGroup
                         aria-label="overall-satisfaction"
                         name="overallSatisfaction"

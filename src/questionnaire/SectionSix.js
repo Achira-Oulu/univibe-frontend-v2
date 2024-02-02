@@ -69,8 +69,9 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
 
       {/* Calmness */}
       <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+      <Typography variant="h6" sx={{ mb: 2 }}>Calmness</Typography>
         <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-          <FormLabel component="legend">Calmness:</FormLabel>
+          <FormLabel component="legend">Rate the level of calmness in your workspace</FormLabel>
           <RadioGroup
             name="calmness"
             value={responses.calmness}
@@ -86,6 +87,7 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
 
       {/* Views and Natural Elements */}
       <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+      <Typography variant="h6" sx={{ mb: 2 }}>Views and Natural Elements</Typography>
         <FormGroup sx={{ mt: 3, mb: 3 }}>
           <FormControlLabel
             control={
@@ -102,6 +104,8 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
 
       {/* Emotional Connection */}
       <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+      <Typography variant="h6" sx={{ mb: 2 }}>Emotional Connection</Typography>
+      <FormLabel component="legend">Do you feel an emotional connection to your workspace</FormLabel>
         <TextField
           name="emotionalConnection"
           label="Emotional Connection"

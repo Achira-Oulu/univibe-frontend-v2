@@ -68,7 +68,7 @@
 
 
 import React from 'react';
-import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Paper } from '@mui/material';
+import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Paper, Box } from '@mui/material';
 
 const SectionFour = ({ responses, handleChange, handleLocation }) => {
     return (
@@ -76,14 +76,17 @@ const SectionFour = ({ responses, handleChange, handleLocation }) => {
             <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Specific Workspace Characteristics</Typography>
 
             {/* Location Data */}
-            <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
-                <Button variant="contained" onClick={handleLocation} sx={{ mb: 2 }}>Allow Location Data</Button>
-            </Paper>
+            {/* <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}> */}
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                    <Button variant="contained" onClick={handleLocation} sx={{ mb: 2 }}>Allow Location Data</Button>
+                </Box>
+            {/* </Paper> */}
 
             {/* Inspiration */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Inspiration</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Inspiration:</FormLabel>
+                    <FormLabel component="legend">Does the workspace feel inspiring to you:</FormLabel>
                     <RadioGroup
                         name="inspiration"
                         value={responses.inspiration}
@@ -99,8 +102,9 @@ const SectionFour = ({ responses, handleChange, handleLocation }) => {
 
             {/* Lighting */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Lighting</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Lighting:</FormLabel>
+                    <FormLabel component="legend">Does the workspace facilitate social functions effectively?</FormLabel>
                     <RadioGroup
                         name="lighting"
                         value={responses.lighting}
@@ -116,8 +120,9 @@ const SectionFour = ({ responses, handleChange, handleLocation }) => {
 
             {/* Noise Level */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Noise Level</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Noise Level:</FormLabel>
+                    <FormLabel component="legend">How would you rate the noise level in your workspace?</FormLabel>
                     <RadioGroup
                         name="noiseLevel"
                         value={responses.noiseLevel}

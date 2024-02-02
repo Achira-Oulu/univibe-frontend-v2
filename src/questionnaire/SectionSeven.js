@@ -1,10 +1,12 @@
 import React from 'react';
-import { Typography, TextField } from '@mui/material';
+import { Typography, TextField, FormLabel } from '@mui/material';
 
 const SectionSeven = ({ responses, handleChange }) => {
     return (
         <div>
-            <Typography variant="h6">Open-Ended Feedback</Typography>
+           <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Open-Ended Feedback</Typography>
+
+           <FormLabel component="legend">Any other comments, suggestions or recommendations for improvements about the workspace??</FormLabel>
 
             {/* Additional Comments */}
             <TextField

@@ -82,8 +82,9 @@ const SectionFive = ({ responses, handleChange }) => {
 
             {/* Social Activities Facilitation */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Social Activities Facilitation</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Social Activities Facilitation:</FormLabel>
+                    <FormLabel component="legend">Does the workspace facilitate social functions effectively</FormLabel>
                     <RadioGroup
                         name="socialActivitiesFacilitation"
                         value={responses.socialActivitiesFacilitation}
@@ -99,8 +100,9 @@ const SectionFive = ({ responses, handleChange }) => {
 
             {/* Cooperation Facilitation */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Cooperation Facilitation</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Cooperation Facilitation:</FormLabel>
+                    <FormLabel component="legend">How well does the workspace facilitate cooperation?</FormLabel>
                     <RadioGroup
                         name="cooperationFacilitation"
                         value={responses.cooperationFacilitation}
@@ -116,8 +118,9 @@ const SectionFive = ({ responses, handleChange }) => {
 
             {/* Concentration Facilitation */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Concentration Facilitation</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Concentration Facilitation:</FormLabel>
+                    <FormLabel component="legend">How helpful is the workspace for concentration?</FormLabel>
                     <RadioGroup
                         name="concentrationFacilitation"
                         value={responses.concentrationFacilitation}
@@ -133,8 +136,9 @@ const SectionFive = ({ responses, handleChange }) => {
 
             {/* Recovery Facilitation */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>Recovery Facilitation</Typography>
                 <FormControl component="fieldset" sx={{ mt: 3, mb: 3 }}>
-                    <FormLabel component="legend">Recovery Facilitation:</FormLabel>
+                    <FormLabel component="legend">Does the workspace facilitate recovery from work (relaxation, calmness)?</FormLabel>
                     <RadioGroup
                         name="recoveryFacilitation"
                         value={responses.recoveryFacilitation}
