@@ -51,6 +51,10 @@
 
 // export default SectionTwo;
 
+
+
+//  version 2 
+
 import React from 'react';
 import {
   Typography,
@@ -65,7 +69,7 @@ import {
 
 const SectionTwo = ({ responses, handleChange, handleImageChange }) => {
   return (
-    <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2 }} component="section">
+    <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }} component="section">
       <Typography variant="h6" align="center" gutterBottom>
         Workspace Environment Assessment
       </Typography>
@@ -98,8 +102,8 @@ const SectionTwo = ({ responses, handleChange, handleImageChange }) => {
             backgroundColor: 'primary.dark',
           },
           color: 'common.white',
-          display: 'block', // to stretch button across the width
-          width: '100%',
+        //   display: 'block', // to stretch button across the width
+        //   width: '100%',
         }}
       >
         Upload Photo
