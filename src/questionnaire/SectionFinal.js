@@ -100,7 +100,7 @@ const SectionFinal = ({ resetForm }) => {
                         onClick={handleResetAndNavigate}
                         sx={{ mb: 2 }} // Added marginBottom for spacing
                     >
-                        Submit Another Form
+                        Submit Another Review
                     </Button>
                     <Button variant="outlined" onClick={() => navigate('/home')}>
                         Go to Home Page
