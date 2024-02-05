@@ -156,9 +156,15 @@ const WorkspaceQuestionnaire = () => {
             }
         });
 
+
+            // Console log formData contents
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+
         // Send the formData to your Flask backend
         try {
-            const response = await fetch('http://your-flask-api-endpoint/upload', {
+            const response = await fetch('http://127.0.0.1:5000/upload_image', {
                 method: 'POST',
                 body: formData,
             });
