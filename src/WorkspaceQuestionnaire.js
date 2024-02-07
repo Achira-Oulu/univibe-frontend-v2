@@ -194,7 +194,7 @@ const WorkspaceQuestionnaire = () => {
         <>
 
         <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
-            <LinearProgress variant="determinate" value={progress} />
+            <LinearProgress variant="determinate" value={progress} sx={{ height: '10px'}} />
         </Box>
 
 
