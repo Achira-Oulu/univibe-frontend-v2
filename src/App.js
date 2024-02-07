@@ -32,6 +32,7 @@ const App = () => {
                 <div> 
                     {/* <Typography variant='h4'>Hello App testing is react</Typography>  */}
                     <Routes>
+                        <Route path='/' element={<Review />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/review" element={<Review />} />
                         <Route path="/settings" element={<Settings />} />

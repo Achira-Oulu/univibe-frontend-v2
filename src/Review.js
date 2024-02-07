@@ -88,7 +88,8 @@ const Review = () => {
     const navigate = useNavigate(); // Initialize useNavigate
 
     // State to store unique ID
-    const [uniqueId, setUniqueId] = useState('');
+    const [uniqueId, setUniqueId] = useState();
+
 
     // Handle form submission
     const handleSubmit = (event) => {

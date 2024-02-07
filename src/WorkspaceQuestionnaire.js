@@ -109,31 +109,6 @@ const WorkspaceQuestionnaire = () => {
         }
     };
 
-    //commented for netlify     
-    // const nextStep = () => {
-    //     if (currentStep < totalSteps) {
-    //         setCurrentStep(currentStep + 1);
-    //     }
-    // };
-
-    // const prevStep = () => {
-    //     if (currentStep > 1) {
-    //         setCurrentStep(currentStep - 1);
-    //     }
-    // };
-
-
-
-    // const handleSubmit = () => {
-    //     // Handle the final submission
-    //     setIsSubmitted(true);
-    //     // console.log("Form Submitted");
-    //     console.log("Form Submitted. Responses:", responses);
-    //     // Here you would typically send the `responses` to your server
-        
-    // };
-
-
 
     const handleSubmit = async () => {
         // Create a FormData object to bundle the data for sending
