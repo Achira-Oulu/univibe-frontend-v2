@@ -87,6 +87,8 @@ export default function FixedBottomNavigation() {
 
     const getNavigationValueFromPath = (path) => {
         switch (path) {
+            case '/':
+                return 1;
             case '/home':
                 return 0;
             case '/review':
