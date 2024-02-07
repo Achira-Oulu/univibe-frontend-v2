@@ -60,6 +60,47 @@ import {
   TextField, FormGroup, Checkbox, Paper
 } from '@mui/material';
 
+// const radioStyle = {
+//   '&.MuiRadio-root': {
+//     color: 'primary.main', // Default color
+//     '&.Mui-checked': {
+//       color: 'primary.main', // Color when checked
+//     },
+//     '&:hover': {
+//       backgroundColor: 'white', // Background color on hover
+//     },
+//   },
+//   '& .MuiSvgIcon-root': { // Targets the SVG icon inside the radio button
+//     backgroundColor: 'white', // Background color of the icon
+//     borderRadius: '50%', // Round shape
+//   },
+// };
+
+const radioStyle = {
+  '&.MuiRadio-root': {
+    // Style for the default state (unchecked)
+    color: 'primary.main', // or use your theme's default color
+    '&:hover': {
+      backgroundColor: 'white', // Only apply the hover background to the button itself
+      '& .MuiSvgIcon-root': { // Ensure the SVG icon does not change color on hover
+        backgroundColor: 'transparent',
+      },
+    },
+  },
+  '&.Mui-checked': {
+    // Style for the checked state
+    '& .MuiSvgIcon-root': { // No background change for the checked state
+      backgroundColor: 'transparent',
+    },
+  },
+  '& .MuiSvgIcon-root': { // Style for the icon in its default state (unchecked)
+    backgroundColor: 'white', // White background for the icon circle
+    borderRadius: '50%', // Round shape
+  },
+};
+
+
+
 const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
   return (
     <>
@@ -77,10 +118,10 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
             value={responses.calmness}
             onChange={handleChange}
           >
-            <FormControlLabel value="1" control={<Radio />} label="1: Not calm at all" />
-            <FormControlLabel value="2" control={<Radio />} label="2" />
-            <FormControlLabel value="3" control={<Radio />} label="3" />
-            <FormControlLabel value="4" control={<Radio />} label="4: Very calm" />
+            <FormControlLabel value="1" control={<Radio  sx={{...radioStyle}}/>} label="1: Not calm at all" />
+            <FormControlLabel value="2" control={<Radio sx={{...radioStyle}}/>} label="2" />
+            <FormControlLabel value="3" control={<Radio sx={{...radioStyle}}/>} label="3" />
+            <FormControlLabel value="4" control={<Radio sx={{...radioStyle}}/>} label="4: Very calm" />
           </RadioGroup>
         </FormControl>
       </Paper>
@@ -115,6 +156,26 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
           onChange={handleChange}
           fullWidth
           margin="normal"
+          helperText="dfafda"
+          variant='outlined'
+          InputProps={{ // Use the InputProps to target the input specifically
+            style: {
+              backgroundColor: 'white', // Apply a white background
+            },
+          }}
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': { // This targets the fieldset element directly for higher specificity
+                borderColor: 'grey', // Set the default border color
+              },
+              '&:hover fieldset': {
+                borderColor: 'primary.main', // Change the border color on hover
+              },
+              '&.Mui-focused fieldset': { // Increase specificity for focused state
+                borderColor: 'primary.main', // Change the border color when the input is focused
+              },
+            },
+          }}
         />
       </Paper>
     </>

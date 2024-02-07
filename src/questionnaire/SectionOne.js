@@ -85,7 +85,7 @@ const SectionOne = ({ responses, handleChange }) => {
         <Typography variant="h6" sx={{ mb: 2 }}>Workspace Composition</Typography>
             
           <FormControl component="fieldset">
-            <FormLabel component="legend">Are you alone in this space, or are other people unrelated to your job?
+            <FormLabel component="legend">Are you alone in this space, or are other people unrelated to your your current task?
 </FormLabel>
             <RadioGroup
               name="workspaceComposition"
@@ -103,7 +103,7 @@ const SectionOne = ({ responses, handleChange }) => {
         <Paper elevation={3} sx={{ p: 3, mb: 2, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h6" sx={{ mb: 2 }}>Collaboration Dynamics</Typography>
           <FormControl component="fieldset">
-            <FormLabel component="legend">Are the participants in the same location, partially in the same location, or only connected virtually?</FormLabel>
+            <FormLabel component="legend">Are your collaborators in the same location, partially in the same location, or only connected virtually?</FormLabel>
             <RadioGroup
               name="collaborationDynamics"
               value={responses.collaborationDynamics}
