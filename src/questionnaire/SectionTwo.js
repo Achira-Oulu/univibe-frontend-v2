@@ -65,16 +65,31 @@ import {
   Radio,
   Button,
   Paper,
-  Box
+  Box,
+  Tooltip
 } from '@mui/material';
+
+import { styled } from '@mui/material/styles';
+
+
+
+const StyledImage = styled('img')({
+  maxWidth: '100%', // Maximum width is 100% of the parent
+  height: 'auto', // Height is automatic to maintain aspect ratio
+  display: 'block', // Display block to remove any extra space around the image
+  marginTop: '20px', // Optional: add space above the image
+  // You can add more styles if necessary
+});
+
+
 
 const SectionTwo = ({ responses, handleChange, handleImageChange }) => {
   return (
     <>
-    <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Workspace Environment Assessment</Typography>
+    <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Section 2: Workspace Environment Assessment</Typography>
     <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }} component="section">
-      <Typography variant="h6" align="center" gutterBottom>
-      Workspace Suitability
+      <Typography variant="h6"  gutterBottom>
+        Workspace Suitability
       </Typography>
 
       <FormControl component="fieldset" sx={{ mt: 3 }}>
@@ -91,17 +106,21 @@ const SectionTwo = ({ responses, handleChange, handleImageChange }) => {
           <FormControlLabel value="4" control={<Radio />} label="4: Highly supportive" />
         </RadioGroup>
       </FormControl>
+    </Paper>
 
-      <Typography variant="subtitle1" align="center" sx={{ mt: 2 }}>
-        Photo Submission (Optional):
+    <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }} component="section">
+      <Typography variant="h6"  gutterBottom>
+        Photo Submission
       </Typography>
+      <FormLabel component="legend">A photo of your current workspace, as seen from your usual sitting or standing position</FormLabel>
 
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+        <Tooltip title="Please ensure the photo is clear and well-lit. Maximum file size: 5MB.">
         <Button
           variant="contained"
           component="label"
           sx={{
-            mt: 2,
+            mt: 1,
             backgroundColor: 'primary.main',
             '&:hover': {
               backgroundColor: 'primary.dark',
@@ -120,9 +139,15 @@ const SectionTwo = ({ responses, handleChange, handleImageChange }) => {
             onChange={handleImageChange}
           />
         </Button>
+        
+        </Tooltip>
       </Box>
-      {responses.photo && (
-        <div sx={{ mt: 2 }}>
+
+      <Typography variant="subtitle2" align="left" sx={{ mt: 4 }}>
+        A photo must be submitted in order to be eligible for rewards associated with this study.
+      </Typography>
+      {/* {responses.photo && (
+        <div sx={{ mt: 2, overflow: 'hidden'  }}>
           <img
             src={URL.createObjectURL(responses.photo)}
             alt="Workspace"
@@ -134,6 +159,14 @@ const SectionTwo = ({ responses, handleChange, handleImageChange }) => {
             }}
           />
         </div>
+      )} */}
+      {responses.photo && (
+        <Box sx={{ mt: 2, overflow: 'hidden' }}>
+          <StyledImage
+            src={URL.createObjectURL(responses.photo)}
+            alt="Workspace"
+          />
+        </Box>
       )}
     </Paper>
     </>

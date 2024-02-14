@@ -52,7 +52,7 @@ const SectionThree = ({ responses, handleChange }) => {
     return (
         <>
 
-<Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Functional and Emotional Workspace Attributes</Typography>
+<Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Section 3: Functional and Emotional Workspace Attributes</Typography>
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
                 <Typography variant="h6" sx={{ mb: 2 }}>Person-Environment Fit</Typography>
                 

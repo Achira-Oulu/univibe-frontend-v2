@@ -78,7 +78,7 @@ import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio
 const SectionFive = ({ responses, handleChange }) => {
     return (
         <>
-            <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Workspace Functionality</Typography>
+            <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Section 5: Workspace Functionality</Typography>
 
             {/* Social Activities Facilitation */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>

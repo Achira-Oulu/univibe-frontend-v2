@@ -62,13 +62,13 @@ const SectionOne = ({ responses, handleChange }) => {
     <>
     
       <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>
-        Nature of Work and Workspace Suitability
+        Section 1: Nature of Work and Workspace Suitability
       </Typography>
 
       <Paper elevation={3} sx={{ p: 3, mb: 2, backgroundColor: '#f0f8ff' }}>
       <Typography variant="h6" sx={{ mb: 2 }}>Workspace Suitability</Typography>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Nature of Current Work Assignment:</FormLabel>
+          <FormLabel component="legend">What is the nature of your current work assignment:</FormLabel>
           <RadioGroup
             name="natureOfWork"
             value={responses.natureOfWork}
@@ -85,15 +85,14 @@ const SectionOne = ({ responses, handleChange }) => {
         <Typography variant="h6" sx={{ mb: 2 }}>Workspace Composition</Typography>
             
           <FormControl component="fieldset">
-            <FormLabel component="legend">Are you alone in this space, or are other people unrelated to your your current task?
-</FormLabel>
+            <FormLabel component="legend">Are you alone in this space, or are there other people unrelated to your your current task? </FormLabel>
             <RadioGroup
               name="workspaceComposition"
               value={responses.workspaceComposition}
               onChange={handleChange}
             >
               <FormControlLabel value="alone" control={<Radio />} label="Alone" />
-              <FormControlLabel value="othersPresent" control={<Radio />} label="Others present not related to the job" />
+              <FormControlLabel value="othersPresent" control={<Radio />} label="Others present, but not related to the my work" />
             </RadioGroup>
           </FormControl>
         </Paper>

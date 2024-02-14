@@ -73,14 +73,20 @@ import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio
 const SectionFour = ({ responses, handleChange, handleLocation }) => {
     return (
         <>
-            <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Specific Workspace Characteristics</Typography>
+            <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Section 4: Specific Workspace Characteristics</Typography>
 
             {/* Location Data */}
-            {/* <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}> */}
-                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                    <Button variant="contained" onClick={handleLocation} sx={{ mb: 2 }}>Allow Location Data</Button>
-                </Box>
-            {/* </Paper> */}
+            <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+                <Typography variant="h6" sx={{ mb: 2 }}>Location</Typography>
+                <FormLabel component="legend">Location of your current workspace</FormLabel>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                        <Button variant="contained" onClick={handleLocation} sx={{ mb: 2 }}>Allow Location Data</Button>
+                    </Box>
+                    <Typography variant="subtitle2" align="left" sx={{ mt: 2 }}>
+        The location of your current workspace must be shared in order to be eligible for rewards associated with this study.
+      </Typography>
+            </Paper>
 
             {/* Inspiration */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>

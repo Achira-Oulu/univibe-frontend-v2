@@ -110,7 +110,7 @@ const Review = () => {
         <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
             
             <Typography variant="h6" align="center" gutterBottom>
-                Please enter the unique ID you've received at the end of the demographic questionnaire to get started. If you haven't filled it, please find it <Link href="https://docs.google.com/forms/d/1MXLTUxM9wh6h6Xb9kTYfFzErKJ0TeuHPp0V92q5Vqt4/edit#responses" underline="hover">here</Link>.
+                Please enter the unique ID you've received at the end of the demographic questionnaire to get started. If you haven't filled it, please find it <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" underline="hover">here</Link>.
             </Typography>
             <Box
                 sx={{

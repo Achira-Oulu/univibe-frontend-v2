@@ -76,36 +76,13 @@ import {
 //   },
 // };
 
-const radioStyle = {
-  '&.MuiRadio-root': {
-    // Style for the default state (unchecked)
-    color: 'primary.main', // or use your theme's default color
-    '&:hover': {
-      backgroundColor: 'white', // Only apply the hover background to the button itself
-      '& .MuiSvgIcon-root': { // Ensure the SVG icon does not change color on hover
-        backgroundColor: 'transparent',
-      },
-    },
-  },
-  '&.Mui-checked': {
-    // Style for the checked state
-    '& .MuiSvgIcon-root': { // No background change for the checked state
-      backgroundColor: 'transparent',
-    },
-  },
-  '& .MuiSvgIcon-root': { // Style for the icon in its default state (unchecked)
-    backgroundColor: 'white', // White background for the icon circle
-    borderRadius: '50%', // Round shape
-  },
-};
-
 
 
 const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
   return (
     <>
       <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>
-        Emotional and Community Connection
+        Section 6: Emotional and Community Connection
       </Typography>
 
       {/* Calmness */}
@@ -118,10 +95,10 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
             value={responses.calmness}
             onChange={handleChange}
           >
-            <FormControlLabel value="1" control={<Radio  sx={{...radioStyle}}/>} label="1: Not calm at all" />
-            <FormControlLabel value="2" control={<Radio sx={{...radioStyle}}/>} label="2" />
-            <FormControlLabel value="3" control={<Radio sx={{...radioStyle}}/>} label="3" />
-            <FormControlLabel value="4" control={<Radio sx={{...radioStyle}}/>} label="4: Very calm" />
+            <FormControlLabel value="1" control={<Radio />} label="1: Not calm at all" />
+            <FormControlLabel value="2" control={<Radio />} label="2" />
+            <FormControlLabel value="3" control={<Radio />} label="3" />
+            <FormControlLabel value="4" control={<Radio />} label="4: Very calm" />
           </RadioGroup>
         </FormControl>
       </Paper>
@@ -135,7 +112,7 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
               <Checkbox
                 checked={responses.viewsAndNaturalElements === 'Yes'}
                 onChange={handleCheckboxChange}
-                name="viewsAndNaturalElements"
+                name="viewsAndNaturalElements"                
               />
             }
             label="Does your workspace offer views outside or include natural elements?"
@@ -156,7 +133,7 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
           onChange={handleChange}
           fullWidth
           margin="normal"
-          helperText="dfafda"
+          // helperText="dfafda"
           variant='outlined'
           InputProps={{ // Use the InputProps to target the input specifically
             style: {
