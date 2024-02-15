@@ -199,6 +199,18 @@ const WorkspaceQuestionnaire = () => {
     };
 
     return (
+        // <Box
+        //     sx={{
+        //         width: '100%',
+        //         height: '100%', // Make sure the height is set to cover the content or full screen
+        //         position: 'fixed',
+        //         top: 0,
+        //         left: 0,
+        //         zIndex: -1, // Place it behind all other content
+        //         background: 'linear-gradient(to bottom, #003366, #006699)', // Adjust the colors as needed
+        //     }}
+        
+        // >
         <>
 
         <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
@@ -232,6 +244,7 @@ const WorkspaceQuestionnaire = () => {
             )}
         </Container>
         </>
+        // </Box>
     );
 
 

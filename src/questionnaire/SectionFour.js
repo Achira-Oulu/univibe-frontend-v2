@@ -128,7 +128,7 @@ const SectionFour = ({ responses, handleChange, handleLocation }) => {
                         <Button variant="contained" onClick={handleLocation} sx={{ mb: 2 }}>Allow Location Data</Button>
                     </Box>
                     <Typography variant="subtitle2" align="left" sx={{ mt: 2 }}>
-                        The location of your current workspace must be shared in order to be eligible for rewards associated with this study.
+                        The location of your current workspace must be included to be eligible for the rewards associated with this study.
                     </Typography>
             </Paper>
 

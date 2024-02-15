@@ -13,6 +13,10 @@ import Review from './Review';
 import Settings from './Settings';
 import WorkspaceQuestionnaire from './WorkspaceQuestionnaire';
 
+import './App.css';
+import { CssBaseline, Box } from '@mui/material';
+// import { makeStyles } from '@mui/styles';
+
 
 // import { makeStyles } from '@mui/material';
 
@@ -25,9 +29,19 @@ import WorkspaceQuestionnaire from './WorkspaceQuestionnaire';
 
 
 const App = () => {
-    // const classes = useStyles();
+    // const classes = useStyles();  
 
     return(
+
+        <Box
+            sx={{
+                minHeight: '100vh', // Ensure it's at least the height of the viewport
+                width: '100%',
+                background: 'linear-gradient(to bottom, #bbdaf8, #ecf2f8)', // Your gradient
+            }}     
+        >
+         <CssBaseline />           
+
         <Router>
                 <div> 
                     {/* <Typography variant='h4'>Hello App testing is react</Typography>  */}
@@ -41,6 +55,7 @@ const App = () => {
                     <FixedBottomNavigation></FixedBottomNavigation>
                 </div>
         </Router>
+        </Box>
         
     );
 }
