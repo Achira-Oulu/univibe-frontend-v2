@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Typography, Button, Box } from '@mui/material';
 // import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -20,6 +20,9 @@ import { LinearProgress } from '@mui/material';
 
 const WorkspaceQuestionnaire = () => {
 
+
+
+
     const location = useLocation();
     // const navigate = useNavigate(); fommented for netlify 
     const uniqueIdFromReview = location.state?.uniqueId; // Retrieve the uniqueId passed from the Review component
@@ -29,6 +32,10 @@ const WorkspaceQuestionnaire = () => {
     const totalSteps = 7; // Total number of sections
     const progress = (currentStep / totalSteps) * 100;
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentStep]);
 
 
     
@@ -54,7 +61,8 @@ const WorkspaceQuestionnaire = () => {
         calmness: '',
         viewsAndNaturalElements: '',
         emotionalConnection: '',
-        additionalComments: ''
+        additionalComments: '',
+        workspaceName: ''
     };
 
     const [responses, setResponses] = useState(initialResponses);

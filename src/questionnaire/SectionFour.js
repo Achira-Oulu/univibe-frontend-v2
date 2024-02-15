@@ -69,6 +69,12 @@
 
 import React from 'react';
 import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Paper, Box } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip';
+import InfoIcon from '@mui/icons-material/Info';
+
+
+
 
 const SectionFour = ({ responses, handleChange, handleLocation }) => {
     return (
@@ -77,15 +83,53 @@ const SectionFour = ({ responses, handleChange, handleLocation }) => {
 
             {/* Location Data */}
             <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
-                <Typography variant="h6" sx={{ mb: 2 }}>Location</Typography>
-                <FormLabel component="legend">Location of your current workspace</FormLabel>
+                    
+                <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                    Workspace Name & Location
+                </Typography>
+
+                <FormLabel component="legend" sx={{ mt: 2 }} >Name of your current workspace</FormLabel>
+
+                    <TextField
+                        fullWidth
+                        // label="Workspace Name"
+                        name="workspaceName"  // Make sure this matches the new property in your responses object
+                        value={responses.workspaceName}
+                        onChange={handleChange}
+                        placeholder="Enter workspace name if applicable"
+                        variant="outlined"
+                        margin="normal"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        InputProps={{
+                            endAdornment: (
+                            <Tooltip title="Leave blank if the workspace doesn't have a name">
+                                <InfoIcon style={{ cursor: 'pointer', color: '#666' }} />
+                            </Tooltip>
+                            ),
+                            style: {
+                                backgroundColor: 'white', // Apply a white background
+                              },
+                        }}
+                        // InputProps={{ // Use the InputProps to target the input specifically
+                        //     style: {
+                        //       backgroundColor: 'white', // Apply a white background
+                        //     },
+                        //   }}
+
+                    />
+
+                
+                {/* <Typography variant="h6" sx={{ mb: 2 }}>Location</Typography> */}
+                    <FormLabel component="legend" sx={{ mt: 4 }} >Location of your current workspace </FormLabel>
 
                     <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                         <Button variant="contained" onClick={handleLocation} sx={{ mb: 2 }}>Allow Location Data</Button>
                     </Box>
                     <Typography variant="subtitle2" align="left" sx={{ mt: 2 }}>
-        The location of your current workspace must be shared in order to be eligible for rewards associated with this study.
-      </Typography>
+                        The location of your current workspace must be shared in order to be eligible for rewards associated with this study.
+                    </Typography>
             </Paper>
 
             {/* Inspiration */}

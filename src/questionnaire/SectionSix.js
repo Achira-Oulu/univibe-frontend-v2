@@ -140,7 +140,7 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
               backgroundColor: 'white', // Apply a white background
             },
           }}
-          sx={{
+          sx={{ 
             '& .MuiOutlinedInput-root': {
               '& fieldset': { // This targets the fieldset element directly for higher specificity
                 borderColor: 'grey', // Set the default border color
