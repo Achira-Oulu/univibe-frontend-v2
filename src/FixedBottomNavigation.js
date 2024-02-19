@@ -90,7 +90,7 @@ export default function FixedBottomNavigation() {
 
 
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('sm'));
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
 
 
@@ -123,7 +123,8 @@ export default function FixedBottomNavigation() {
                 bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
                 left: 0, 
                 right: 0,
-                paddingBottom: 'env(safe-area-inset-bottom)'
+                paddingBottom: 'env(safe-area-inset-bottom)',
+                zIndex: 1300
                  }} elevation={3}>
                 <BottomNavigation
                     showLabels
