@@ -123,7 +123,7 @@ export default function FixedBottomNavigation() {
                 bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
                 left: 0, 
                 right: 0,
-                paddingBottom: 'env(safe-area-inset-bottom + 16px)',
+                paddingBottom: 'env(safe-area-inset-bottom)',
                 zIndex: 1300    
                  }} elevation={3}>
                 <BottomNavigation
