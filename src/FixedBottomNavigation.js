@@ -118,13 +118,13 @@ export default function FixedBottomNavigation() {
     return (
         <Box sx={{ pb: 7 }}>
             <CssBaseline />
-            <Paper sx={{ 
+            <Paper className="navbar" sx={{ 
                 position: 'fixed', 
                 bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
                 left: 0, 
                 right: 0,
                 paddingBottom: 'env(safe-area-inset-bottom)',
-                zIndex: 1300
+                zIndex: 1300    
                  }} elevation={3}>
                 <BottomNavigation
                     showLabels
