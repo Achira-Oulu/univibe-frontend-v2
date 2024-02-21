@@ -147,8 +147,8 @@ const WorkspaceQuestionnaire = () => {
 
         // Send the formData to your Flask backend
         try {
-            // const response = await fetch('http://127.0.0.1:5000/upload_image', {
-            const response = await fetch('https://univibe-back-production.up.railway.app/upload_image', {
+            const response = await fetch('http://127.0.0.1:5000/upload_image', {
+            
                 method: 'POST',
                 body: formData,
             });
