@@ -4,7 +4,7 @@ import { Typography, TextField, FormLabel, Paper } from '@mui/material';
 const SectionSeven = ({ responses, handleChange }) => {
     return (
         <div>
-            <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
+          <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 2, backgroundColor: '#f0f8ff' }}>
            <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Section 7: Open-Ended Feedback</Typography>
 
            <FormLabel component="legend">Any other comments, suggestions or recommendations for improvements about the workspace??</FormLabel>
@@ -47,7 +47,7 @@ const SectionSeven = ({ responses, handleChange }) => {
                     },
                   }}
             />
-            </Paper>
+          </Paper>
         </div>
     );
 };

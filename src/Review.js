@@ -1,100 +1,69 @@
-// import React, { useState } from 'react';
-// import { Container, Typography, TextField, Button, RadioGroup, FormControlLabel, Radio, FormLabel } from '@mui/material';
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
-
-// const Review = () => {
-//     const navigate = useNavigate(); // Initialize useNavigate
-
-//     // State to store answers
-//     const [answers, setAnswers] = useState({
-//         // Add keys here for each question
-//     });
-
-//     // Handle change in answers
-//     const handleChange = (event) => {
-//         setAnswers({ ...answers, [event.target.name]: event.target.value });
-//     };
-
-//     // Handle form submission
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//         console.log(answers);
-
-//         // Navigate to the questionnaire page after submission
-//         navigate('/workspacequestionnaire'); 
-//     };
-
-//     return (
-//         <Container maxWidth="sm">
-//             <Typography variant="h4" style={{ margin: '20px 0' }}>Workspace Review</Typography>
-//             <form onSubmit={handleSubmit}>
-//                 {/* Add your questionnaire fields here */}
-//                 <Button type="submit" variant="contained" color="primary">Submit Review</Button>
-//             </form>
-//         </Container>
-//     );
-// };
-
-// export default Review;
-
-
-// import React, { useState } from 'react';
-// import { Container, Typography, TextField, Button } from '@mui/material';
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
-// const Review = () => {
-//     const navigate = useNavigate(); // Initialize useNavigate
-
-//     // State to store unique ID
-//     const [uniqueId, setUniqueId] = useState('');
-
-//     // Handle form submission
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//         console.log(uniqueId);
-
-//         // Navigate to the questionnaire page with the uniqueId in state
-//         navigate('/workspacequestionnaire', { state: { uniqueId } }); 
-//     };
-
-//     return (
-
-//         <Container maxWidth="sm">
-//             <Typography variant="h4" style={{ margin: '20px 0', textAlign: 'center'}}> Uni<b>Vibe</b> </Typography>
-//             <Typography variant="h4" style={{ margin: '20px 0', textAlign:'center' }}>Workspace Review</Typography>
-//             <form onSubmit={handleSubmit}>
-//                 <TextField
-//                     fullWidth
-//                     label="Unique ID"
-//                     value={uniqueId}
-//                     onChange={(e) => setUniqueId(e.target.value)}
-//                     margin="normal"
-//                 />
-//                 <Button type="submit" variant="contained" color="primary">Get Started!</Button>
-//             </form>
-//         </Container>
-//     );
-// };
-
-// export default Review;
-
-
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Box, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Review = () => {
     const navigate = useNavigate(); // Initialize useNavigate
-
     // State to store unique ID
-    const [uniqueId, setUniqueId] = useState();
+    const [uniqueId, setUniqueId] = useState('');
+    let mediaRecorder;
+    let audioChunks = [];
+
+    const uploadAudio = async (audioBlob) => {
+        const formData = new FormData();
+        formData.append("audio", audioBlob, "recording.wav");
+    
+        try {
+            const response = await fetch('http://localhost:5000/upload_audio', {
+                method: 'POST',
+                body: formData,
+            });
+    
+            const data = await response.json();
+            console.log("Server response:", data);
+        } catch (error) {
+            console.error("Error uploading the audio file", error);
+        }
+    };
+    
+
+
+    const startRecording = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.start();
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+
+            // Stop recording after 30 seconds
+            setTimeout(() => {
+                mediaRecorder.stop();
+            }, 30000); // 30000 ms = 30 seconds
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { 'type' : 'audio/wav; codecs=opus' });
+
+                // Here, you can save the blob or send it to a server for further analysis
+                uploadAudio(audioBlob);
+                // For example: uploadAudio(audioBlob);
+            };
+        } catch (error) {
+            console.error("Error accessing the microphone", error);
+        }
+    };
+
 
 
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(uniqueId);
+
+        // Start recording audio
+        startRecording();
 
         // Navigate to the questionnaire page with the uniqueId in state
         navigate('/workspacequestionnaire', { state: { uniqueId } }); 
