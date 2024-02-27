@@ -14,7 +14,7 @@ const Review = () => {
         formData.append("audio", audioBlob, "recording.wav");
     
         try {
-            const response = await fetch('http://localhost:5000/upload_audio', {
+            const response = await fetch('https://univibe-back-production.up.railway.app/upload_audio', {
                 method: 'POST',
                 body: formData,
             });
