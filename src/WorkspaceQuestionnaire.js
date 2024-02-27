@@ -20,6 +20,53 @@ import { LinearProgress } from '@mui/material';
 
 const WorkspaceQuestionnaire = () => {
 
+    const apiKey = process.env.REACT_APP_OPENAI_KEY; // Your actual API key should be here
+
+    async function analyzeImage(base64Image) {
+        const payload = {
+          model: "gpt-4-vision-preview",
+          messages: [
+            {
+              role: "user",
+              content: "What’s in this image?",
+            },
+            {
+              role: "system",
+              content: {
+                "image": {
+                  "data": base64Image,
+                },
+              },
+            },
+          ],
+        };
+      
+        const headers = {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        };
+      
+        try {
+
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(payload),
+          });
+      
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            // Here you can handle the response, e.g., update the state or display the analysis results
+          } else {
+            console.error('Server responded with an error:', response);
+          }
+        } catch (error) {
+          console.error('Failed to send request:', error);
+        }
+      }
+      
+
 
 
 
@@ -82,10 +129,41 @@ const WorkspaceQuestionnaire = () => {
 
 
     
-    // Handle image change for photo upload
+    // // Handle image change for photo upload
+    // const handleImageChange = (event) => {
+    //     if (event.target.files && event.target.files[0]) {
+    //         setResponses({ ...responses, photo: event.target.files[0] });
+    //     }
+        
+    // };
+
+
     const handleImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
-            setResponses({ ...responses, photo: event.target.files[0] });
+            const file = event.target.files[0];
+    
+            // Update the state with the selected file
+            setResponses({ ...responses, photo: file });
+    
+            // Convert the image file to a Base64 string
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64Image = reader.result.replace('data:', '').replace(/^.+,/, '');
+    
+                // Here you can either update the state with the Base64 string or
+                // call a function to handle the next steps, like sending it to your server.
+                // For example, you could update your state (not shown here due to potential re-renders and large data sizes)
+                // Or directly call a function like this:
+                // analyzeImage(base64String);
+                analyzeImage(base64Image);
+    
+                // If you choose to update the state, it might look something like this:
+                // setResponses({ ...responses, photoBase64: base64String });
+    
+                // Note: Storing large Base64 strings in the state can lead to performance issues.
+                // It's generally better to handle the string directly without storing it in the state if possible.
+            };
+            reader.readAsDataURL(file);
         }
     };
 
@@ -200,18 +278,6 @@ const WorkspaceQuestionnaire = () => {
     };
 
     return (
-        // <Box
-        //     sx={{
-        //         width: '100%',
-        //         height: '100%', // Make sure the height is set to cover the content or full screen
-        //         position: 'fixed',
-        //         top: 0,
-        //         left: 0,
-        //         zIndex: -1, // Place it behind all other content
-        //         background: 'linear-gradient(to bottom, #003366, #006699)', // Adjust the colors as needed
-        //     }}
-        
-        // >
         <>
 
         <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
