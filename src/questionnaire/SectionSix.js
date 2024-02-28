@@ -57,7 +57,7 @@
 import React from 'react';
 import {
   Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio,
-  TextField, FormGroup, Checkbox, Paper
+  TextField, FormGroup, Checkbox, Paper, FormHelperText
 } from '@mui/material';
 
 // const radioStyle = {
@@ -113,11 +113,14 @@ const SectionSix = ({ responses, handleChange, handleCheckboxChange }) => {
                 checked={responses.viewsAndNaturalElements === 'Yes'}
                 onChange={handleCheckboxChange}
                 name="viewsAndNaturalElements"                
-              />
+              />              
             }
             label="Does your workspace offer views outside or include natural elements?"
           />
         </FormGroup>
+        <FormHelperText>
+          (Natural elements refer to components of a workspace that bring nature indoors, such as plants, natural light, water features, or outdoor views.)
+        </FormHelperText>
       </Paper>
 
       {/* Emotional Connection */}

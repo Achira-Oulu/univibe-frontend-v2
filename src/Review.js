@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { Container, Typography, TextField, Button, Box, Link } from '@mui/material';
+import { Container, Typography, TextField, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Avatar from '@mui/material/Avatar';
+// import GroupsIcon from '@mui/icons-material/Groups';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import Link from '@mui/material/Link';
+// import Grid from '@mui/material/Grid';
+
 
 const Review = () => {
     const navigate = useNavigate(); // Initialize useNavigate
@@ -41,6 +49,7 @@ const Review = () => {
             // Stop recording after 30 seconds
             setTimeout(() => {
                 mediaRecorder.stop();
+                stream.getTracks().forEach(track => track.stop());
             }, 30000); // 30000 ms = 30 seconds
             
             mediaRecorder.onstop = () => {
@@ -73,13 +82,23 @@ const Review = () => {
 <>
         <Container>
             <Typography variant="h4" style={{ margin: '20px 0', textAlign: 'center'}}> Uni<b>Vibe</b> </Typography>
-            <Typography variant="h5" style={{ margin: '20px 0', textAlign:'center' }}>Welcome to UniVibe workspace questionannire!</Typography>
+            <Typography variant="h5" style={{ margin: '20px 0', textAlign:'center' }}>Welcome to UniVibe Workspace Review!</Typography>
         </Container>
 
         <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
             
-            <Typography variant="h6" align="center" gutterBottom>
+            {/* <Typography variant="h6" align="center" gutterBottom>
                 Please enter the unique ID you've received at the end of the demographic questionnaire to get started. If you haven't filled it, please find it <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" underline="hover">here</Link>.
+            </Typography> */}
+
+            <Avatar sx={{ m: 1, bgcolor: 'black' }}>
+                <RateReviewIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+                Start your Review
+            </Typography>
+            <Typography component="p" variant="caption">
+                By just entering your unique ID and review #.
             </Typography>
             <Box
                 sx={{
@@ -97,15 +116,54 @@ const Review = () => {
                         fullWidth
                         label="Unique ID"
                         variant="outlined"
+                        required
                         value={uniqueId}
                         onChange={(e) => setUniqueId(e.target.value)}
                         margin="normal"
+                        helperText="Enter the ID from your demographic survey."
                     />
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                    <TextField
+                        fullWidth
+                        label="Review Number"
+                        variant="outlined"
+                        required
+                        // value={uniqueId}
+                        // onChange={(e) => setUniqueId(e.target.value)}
+                        margin="normal"
+                        helperText=" For example, enter '1' if this is your first submission, '2' for your second, and so on."
+                    />
+
+                    <FormControlLabel
+                        control={<Checkbox  value="remember" color="primary" />}
+                        label={
+                            <Typography variant="body2">
+                                Allow microphone use for noise monitoring
+                            </Typography>
+                        }
+                        sx={{ mt: 3, mb: 2 }}
+                    />
+
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 3 }}>
                         <Button type="submit" variant="contained" color="primary" sx={{ textTransform: 'none' }}>
                             Get Started!
                         </Button>
                     </Box>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            width: '100%', // Ensure it spans the full width
+                            mt: 2 // Adjust margin-top as needed
+                        }}
+                        >
+                        <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" variant="body2">
+                          {"Haven't filled the questionnaire yet?"}
+                        </Link>
+                    </Box>
+
+
+
+
                 </form>
             </Box>
         </Container>

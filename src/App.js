@@ -12,6 +12,7 @@ import Home from './Home';
 import Review from './Review';
 import Settings from './Settings';
 import WorkspaceQuestionnaire from './WorkspaceQuestionnaire';
+import SignIn from './SignIn'
 
 import './App.css';
 import { CssBaseline, Box } from '@mui/material';
@@ -51,6 +52,7 @@ const App = () => {
                         <Route path="/review" element={<Review />} />
                         <Route path="/settings" element={<Settings />} />
                         <Route path="/workspacequestionnaire" element={<WorkspaceQuestionnaire/>} />
+                        <Route path="/signin" element={<SignIn/>} />
                     </Routes> 
                     <FixedBottomNavigation></FixedBottomNavigation>
                 </div>
