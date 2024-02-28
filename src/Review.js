@@ -82,7 +82,7 @@ const Review = () => {
 <>
         <Container>
             <Typography variant="h4" style={{ margin: '20px 0', textAlign: 'center'}}> Uni<b>Vibe</b> </Typography>
-            <Typography variant="h5" style={{ margin: '20px 0', textAlign:'center' }}>Welcome to UniVibe Workspace Review!</Typography>
+            {/* <Typgraphy variant="h5" style={{ margin: '20px 0', textAlign:'center' }}>Welcome to UniVibe Workspace Review!</Typography> */}
         </Container>
 
         <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
