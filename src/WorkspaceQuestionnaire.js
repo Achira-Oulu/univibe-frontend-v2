@@ -26,6 +26,8 @@ const WorkspaceQuestionnaire = () => {
     const location = useLocation();
     // const navigate = useNavigate(); fommented for netlify 
     const uniqueIdFromReview = location.state?.uniqueId; // Retrieve the uniqueId passed from the Review component
+    const reviewIdFromReview = location.state?.reviewId; // Retrieve the reviewId passed from the Review component
+
 
 
     const [currentStep, setCurrentStep] = useState(1);
@@ -43,6 +45,7 @@ const WorkspaceQuestionnaire = () => {
     // Initialize state for questionnaire responses
     const initialResponses = {
         uniqueId: uniqueIdFromReview,
+        reviewId: reviewIdFromReview,
         natureOfWork: '',
         workspaceComposition: '',
         collaborationDynamics: '',
@@ -148,6 +151,7 @@ const WorkspaceQuestionnaire = () => {
         // Send the formData to your Flask backend
         try {
             const response = await fetch('https://univibe-back-production.up.railway.app/upload_image', {
+            // const response = await fetch('http://127.0.0.1:5000//upload_image', {
                 method: 'POST',
                 body: formData,
             });

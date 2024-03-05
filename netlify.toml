@@ -1,0 +1,13 @@
+[[headers]]
+  # Defines the paths for which the below headers should apply,
+  # "/*" means all paths.
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  # Defines the paths for which the below headers should apply,
+  # "/*" means all paths.
+  for = "/workspacequestionnaire*"
+  [headers.values]
+    Cache-Control = "no-cache"
