@@ -14,15 +14,22 @@ const Review = () => {
     const navigate = useNavigate(); // Initialize useNavigate
     // State to store unique ID
     const [uniqueId, setUniqueId] = useState('');
+    const [reviewId , setReviewId] = useState('');
+    const [allowRecording, setAllowRecording] = useState(false);
+
+
     let mediaRecorder;
     let audioChunks = [];
 
     const uploadAudio = async (audioBlob) => {
         const formData = new FormData();
         formData.append("audio", audioBlob, "recording.wav");
+        formData.append("uniqueId", uniqueId);
+        formData.append("reviewId", reviewId);
     
         try {
             const response = await fetch('https://univibe-back-production.up.railway.app/upload_audio', {
+            // const response = await fetch('http://127.0.0.1:5000/upload_audio', {
                 method: 'POST',
                 body: formData,
             });
@@ -56,7 +63,7 @@ const Review = () => {
                 const audioBlob = new Blob(audioChunks, { 'type' : 'audio/wav; codecs=opus' });
 
                 // Here, you can save the blob or send it to a server for further analysis
-                uploadAudio(audioBlob);
+                uploadAudio(audioBlob, uniqueId, reviewId);
                 // For example: uploadAudio(audioBlob);
             };
         } catch (error) {
@@ -72,10 +79,11 @@ const Review = () => {
         console.log(uniqueId);
 
         // Start recording audio
-        startRecording();
-
+        if (allowRecording) {
+            startRecording();
+        }
         // Navigate to the questionnaire page with the uniqueId in state
-        navigate('/workspacequestionnaire', { state: { uniqueId } }); 
+        navigate('/workspacequestionnaire', { state: { uniqueId, reviewId } }); 
     };
 
     return (
@@ -127,17 +135,25 @@ const Review = () => {
                         label="Review Number"
                         variant="outlined"
                         required
-                        // value={uniqueId}
-                        // onChange={(e) => setUniqueId(e.target.value)}
+                        value={reviewId}
+                        onChange={(e) => setReviewId(e.target.value)}
                         margin="normal"
                         helperText=" For example, enter '1' if this is your first submission, '2' for your second, and so on."
                     />
 
                     <FormControlLabel
-                        control={<Checkbox  value="remember" color="primary" />}
+                        // control={<Checkbox  value="remember" color="primary" />}
+                        control={
+                            <Checkbox
+                                checked={allowRecording}
+                                onChange={(e) => setAllowRecording(e.target.checked)}
+                                value="allowRecording"
+                                color="primary"
+                            />
+                        }
                         label={
                             <Typography variant="body2">
-                                Allow microphone use for noise monitoring
+                                Allow microphone use for donating an audio sample.
                             </Typography>
                         }
                         sx={{ mt: 3, mb: 2 }}
@@ -160,8 +176,6 @@ const Review = () => {
                           {"Haven't filled the questionnaire yet?"}
                         </Link>
                     </Box>
-
-
 
 
                 </form>
