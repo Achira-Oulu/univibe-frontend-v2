@@ -153,7 +153,7 @@ const Review = () => {
                         }
                         label={
                             <Typography variant="body2">
-                                Allow microphone use for donating an audio sample.
+                                Capture an audio sample for measuring ambient noise levels.
                             </Typography>
                         }
                         sx={{ mt: 3, mb: 2 }}
