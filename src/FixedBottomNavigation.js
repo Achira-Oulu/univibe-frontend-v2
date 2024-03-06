@@ -7,18 +7,18 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-// import Paper from '@mui/material/Paper';
+import Paper from '@mui/material/Paper';
 
-// import { useTheme } from '@mui/material/styles';
-// import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function FixedBottomNavigation() {
     const location = useLocation();
     const [value, setValue] = useState(0);
 
 
-    // const theme = useTheme();
-    // const matches = useMediaQuery(theme.breakpoints.down('sm'));
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
 
 
@@ -48,14 +48,14 @@ export default function FixedBottomNavigation() {
     return (
         <Box sx={{ pb: 7 }}>
             <CssBaseline />
-            {/* <Paper sx={{ 
+            <Paper sx={{ 
                 position: 'fixed', 
                 bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
                 left: 0, 
                 right: 0,
                 paddingBottom: 'env(safe-area-inset-bottom)',
-                zIndex: 1300    
-                 }} elevation={3}> */}
+                zIndex: 600    
+                 }} elevation={3}>
                 <BottomNavigation
                     showLabels
                     value={value}
@@ -70,7 +70,7 @@ export default function FixedBottomNavigation() {
                     <BottomNavigationAction label="Review" icon={<CloudUploadIcon />} component={Link} to="/review" />
                     <BottomNavigationAction label="Settings" icon={<SettingsIcon />} component={Link} to="/settings" /> */}
                 </BottomNavigation>
-            {/* </Paper> */}
+            </Paper>
         </Box>
     );
 }
