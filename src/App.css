@@ -1,5 +1,5 @@
 /* App.css */
-body {
+/* body {
   background: linear-gradient(to bottom, #bbdaf8, #ecf2f8);
   margin: 0;
   height: 100%;
@@ -10,14 +10,33 @@ html {
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
   background-attachment: fixed;
-  /* background-image: url('/bg.svg'); comment this */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 /* .navbar {
   padding-bottom: 0;
   padding-bottom: env(safe-area-inset-bottom, 0);
 }
  */
+
+ /* App.css */
+html {
+  height: 100%; /* Ensure the html element takes full height */
+  overflow: hidden; /* Prevent scrolling on the html element to ensure body handles it */
+}
+
+body {
+  display: flex; /* Use flex layout to contain the main content */
+  flex-direction: column; /* Stack content vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+  overflow: auto; /* Enable scrolling on the body element */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); /* Apply safe area insets here */
+  background: linear-gradient(to bottom, #bbdaf8, #ecf2f8);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
