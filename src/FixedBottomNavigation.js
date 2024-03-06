@@ -10,14 +10,14 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 // import Paper from '@mui/material/Paper';
 
 import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function FixedBottomNavigation() {
     const location = useLocation();
     const [value, setValue] = useState(0);
 
 
-    const theme = useTheme();
+    // const theme = useTheme();
     // const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
 
