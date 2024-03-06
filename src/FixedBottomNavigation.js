@@ -10,15 +10,15 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import Paper from '@mui/material/Paper';
 
 import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function FixedBottomNavigation() {
     const location = useLocation();
     const [value, setValue] = useState(0);
 
 
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down('sm'));
+    // const theme = useTheme();
+    // const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
 
 
@@ -46,13 +46,14 @@ export default function FixedBottomNavigation() {
     }, [location]);
 
     return (
-        <Box sx={{ pb: 2 }}>
+        <Box sx={{ pb: 5 }}>
             <CssBaseline />
             <Paper sx={{ 
                 position: 'fixed', 
-                bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
+                // bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
                 left: 0, 
                 right: 0,
+                bottom: 0,
                 paddingBottom: 'env(safe-area-inset-bottom)',
                 zIndex: 600    
                  }} elevation={3}>
