@@ -1,23 +1,26 @@
-/* App.css */
-body {
-    background: linear-gradient(to bottom, #bbdaf8, #ecf2f8);
-    margin: 0;
-    height: 100%;
-    overflow-x: hidden;
-  }
-  html {
-    min-height: calc(100% + env(safe-area-inset-top));
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  
-    background-attachment: fixed;
-    /* background-image: url('/bg.svg'); comment this */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-/* .navbar {
-    padding-bottom: 0;
-    padding-bottom: env(safe-area-inset-bottom, 0);
+html, body {
+  height: 100%; /* Ensure html and body are both set to 100% height */
+  margin: 0;
+  overflow-x: hidden;
 }
-   */
+
+body {
+  background: linear-gradient(to bottom, #bbdaf8, #ecf2f8);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh; /* Use 100vh as the minimum height to cover the full viewport */
+  min-height: -webkit-fill-available; /* For mobile browsers where vh does not always include the address bar */
+}
+
+html {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* For PWA on iOS devices, adjust the background for the safe area */
+@media (prefers-color-scheme: light) {
+  body {
+    background-attachment: scroll; /* Adjust this if you want to keep the gradient fixed while scrolling */
+  }
+}
