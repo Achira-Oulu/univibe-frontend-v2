@@ -9,7 +9,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import Paper from '@mui/material/Paper';
 
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 // import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function FixedBottomNavigation() {
