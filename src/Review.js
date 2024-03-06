@@ -172,7 +172,7 @@ const Review = () => {
                             mt: 2 // Adjust margin-top as needed
                         }}
                         >
-                        <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" variant="body2">
+                        <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" variant="body2" target="_blank" rel="noopener noreferrer">
                           {"Haven't filled the questionnaire yet?"}
                         </Link>
                     </Box>
