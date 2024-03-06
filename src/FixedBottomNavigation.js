@@ -48,14 +48,14 @@ export default function FixedBottomNavigation() {
     return (
         <Box sx={{ pb: 7 }}>
             <CssBaseline />
-            <Paper sx={{ 
+            {/* <Paper sx={{ 
                 position: 'fixed', 
                 bottom: matches ? 'env(safe-area-inset-bottom)' : 0, 
                 left: 0, 
                 right: 0,
                 paddingBottom: 'env(safe-area-inset-bottom)',
                 zIndex: 1300    
-                 }} elevation={3}>
+                 }} elevation={3}> */}
                 <BottomNavigation
                     showLabels
                     value={value}
@@ -70,7 +70,7 @@ export default function FixedBottomNavigation() {
                     <BottomNavigationAction label="Review" icon={<CloudUploadIcon />} component={Link} to="/review" />
                     <BottomNavigationAction label="Settings" icon={<SettingsIcon />} component={Link} to="/settings" /> */}
                 </BottomNavigation>
-            </Paper>
+            {/* </Paper> */}
         </Box>
     );
 }
