@@ -233,7 +233,7 @@ const WorkspaceQuestionnaire = () => {
             ) : (
                 <>
                     {renderSection()}
-                    <Box sx={{ display: 'flex', justifyContent: currentStep === 1 ? 'flex-end' : 'space-between', mt: 2 }}>
+                    <Box sx={{ display: 'flex', justifyContent: currentStep === 1 ? 'flex-end' : 'space-between', mt: 2, mb: 4 }}>
                         {currentStep > 1 && (
                             <Button onClick={() => setCurrentStep((prev) => prev - 1)}>Back</Button>
                         )}
