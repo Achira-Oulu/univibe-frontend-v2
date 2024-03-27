@@ -98,10 +98,11 @@ const Review = () => {
             {/* <Typography variant="h6" align="center" gutterBottom>
                 Please enter the unique ID you've received at the end of the demographic questionnaire to get started. If you haven't filled it, please find it <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" underline="hover">here</Link>.
             </Typography> */}
-
-            <Avatar sx={{ m: 1, bgcolor: 'black' }}>
-                <RateReviewIcon />
-            </Avatar>
+            <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '120px' }}>
+                <Avatar sx={{ m: 1, bgcolor: 'black' }}>
+                    <RateReviewIcon />
+                </Avatar>
+            </Container>
             <Typography component="h1" variant="h5">
                 Start your Review
             </Typography>
