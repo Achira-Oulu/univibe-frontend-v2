@@ -3,9 +3,9 @@ import { Container, Typography, TextField, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-// import Avatar from '@mui/material/Avatar';
+import Avatar from '@mui/material/Avatar';
 // import GroupsIcon from '@mui/icons-material/Groups';
-// import RateReviewIcon from '@mui/icons-material/RateReview';
+import RateReviewIcon from '@mui/icons-material/RateReview';
 import Link from '@mui/material/Link';
 // import Grid from '@mui/material/Grid';
 
@@ -98,6 +98,11 @@ const Review = () => {
             {/* <Typography variant="h6" align="center" gutterBottom>
                 Please enter the unique ID you've received at the end of the demographic questionnaire to get started. If you haven't filled it, please find it <Link href="https://forms.gle/uDPMdZCamQBgo9CA7" underline="hover">here</Link>.
             </Typography> */}
+            <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '120px' }}>
+                <Avatar sx={{ m: 1, bgcolor: 'black' }}>
+                    <RateReviewIcon />
+                </Avatar>
+            </Container>
 
             {/* <Avatar sx={{ m: 1, bgcolor: 'black' }}>
                 <RateReviewIcon />

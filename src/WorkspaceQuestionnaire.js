@@ -12,6 +12,9 @@ import SectionFive from './questionnaire/SectionFive';
 import SectionSix from './questionnaire/SectionSix';
 import SectionSeven from './questionnaire/SectionSeven';
 import SectionFinal from './questionnaire/SectionFinal';
+import LoadingScreen from './common/LoadingScreen'
+
+
 
 import { LinearProgress } from '@mui/material';
 
@@ -20,6 +23,7 @@ import { LinearProgress } from '@mui/material';
 
 const WorkspaceQuestionnaire = () => {
 
+    const [loading, setLoading] = useState(false);
 
 
 
@@ -122,6 +126,9 @@ const WorkspaceQuestionnaire = () => {
 
 
     const handleSubmit = async () => {
+
+        setLoading(true);
+
         // Create a FormData object to bundle the data for sending
         const formData = new FormData();
 
@@ -160,9 +167,11 @@ const WorkspaceQuestionnaire = () => {
                 const result = await response.json();
                 console.log('Success:', result);
                 // Handle success here, possibly resetting the form or redirecting the user
+                setLoading(false);
             } else {
                 console.error('Server error:', response.statusText);
                 // Handle server errors here
+                setLoading(false);
             }
         } catch (error) {
             console.error('Network error:', error);
@@ -203,56 +212,50 @@ const WorkspaceQuestionnaire = () => {
     };
 
     return (
-        // <Box
-        //     sx={{
-        //         width: '100%',
-        //         height: '100%', // Make sure the height is set to cover the content or full screen
-        //         position: 'fixed',
-        //         top: 0,
-        //         left: 0,
-        //         zIndex: -1, // Place it behind all other content
-        //         background: 'linear-gradient(to bottom, #003366, #006699)', // Adjust the colors as needed
-        //     }}
-        
-        // >
+
         <>
 
         <Box sx={{ width: '100%', position: 'fixed', top: 0, zIndex: 1000 }}>
             <LinearProgress variant="determinate" value={progress} sx={{ height: '5px'}} />
         </Box>
 
+        {loading ? (
+        <LoadingScreen /> // This will display the loading screen when loading is true
+        ) : (
+        
 
-        <Container maxWidth="sm">
-            <Typography variant="h4" style={{ margin: '20px 0', textAlign: 'center'}}> Uni<b>Vibe</b> </Typography>
-            {isSubmitted ? (
-                <SectionFinal resetForm={() => {
-                    setIsSubmitted(false);
-                    setResponses(initialResponses);
-                    setCurrentStep(1);
-                }} />
-            ) : (
-                <>
-                    {renderSection()}
-                    <Box sx={{ display: 'flex', justifyContent: currentStep === 1 ? 'flex-end' : 'space-between', mt: 2, mb: 10 }}>
-                        {currentStep > 1 && (
-                            <Button onClick={() => setCurrentStep((prev) => prev - 1)}>Back</Button>
-                        )}
-                        {currentStep < totalSteps && (
-                            <Button onClick={() => setCurrentStep((prev) => prev + 1)}>Next</Button>
-                        )}
-                        {currentStep === totalSteps && (
-                            <Button color="primary" variant="contained" onClick={handleSubmit}>Submit</Button>
-                        )}
-                    </Box>
-                    <h1>
-                        
-                    </h1>
+            <Container maxWidth="sm">
+                <Typography variant="h4" style={{ margin: '20px 0', textAlign: 'center'}}> Uni<b>Vibe</b> </Typography>
+                {isSubmitted ? (
+                    <SectionFinal resetForm={() => {
+                        setIsSubmitted(false);
+                        setResponses(initialResponses);
+                        setCurrentStep(1);
+                    }} />
+                ) : (
+                    <>
+                        {renderSection()}
+                        <Box sx={{ display: 'flex', justifyContent: currentStep === 1 ? 'flex-end' : 'space-between', mt: 2, mb: 10 }}>
+                            {currentStep > 1 && (
+                                <Button onClick={() => setCurrentStep((prev) => prev - 1)}>Back</Button>
+                            )}
+                            {currentStep < totalSteps && (
+                                <Button onClick={() => setCurrentStep((prev) => prev + 1)}>Next</Button>
+                            )}
+                            {currentStep === totalSteps && (
+                                <Button color="primary" variant="contained" onClick={handleSubmit}>Submit</Button>
+                            )}
+                        </Box>
+                        <h1>
+                            
+                        </h1>
 
-                </>
-            )}
-        </Container>
+                    </>
+                )}
+            </Container>
+        )}
         </>
-        // </Box>
+
     );
 
 

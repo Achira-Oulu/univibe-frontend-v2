@@ -64,7 +64,9 @@ export default function FixedBottomNavigation() {
                         setValue(newValue);
                     }}
                 >
-                    <BottomNavigationAction label="Home" icon={<HomeIcon />}  />
+                    <BottomNavigationAction label="Home" icon={<HomeIcon />} 
+                    // component={Link} to="/loadingscreen"
+                    />
                     <BottomNavigationAction label="Review" icon={<CloudUploadIcon />} component={Link} to="/review" />
                     <BottomNavigationAction label="Settings" icon={<SettingsIcon />} />
                     {/* <BottomNavigationAction label="Home" icon={<HomeIcon />} component={Link} to="/home" />
